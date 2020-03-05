@@ -1,15 +1,15 @@
 var log = {
     isEmpty: function (array) {
-        if (array.length-1 >= 1) {
+        if (array.length >= 1) {
             return true;
         } else {
             return false;
         }
     },
     max: function (array) {
-        if (array.length-1 >= 1) {
+        if (array.length >= 1) {
             max = 0;
-            for (i = 0; i <= array.length; i++) {
+            for (i = 0; i <= array.length - 1; i++) {
                 if (array[i] > max) {
                     max = array[i];
                 }
@@ -22,7 +22,7 @@ var log = {
     min: function (array) {
         if (array.length >= 1) {
             min = array[0];
-            for (i = 0; i <= array.length; i++) {
+            for (i = 0; i <= array.length - 1; i++) {
                 if (array[i] < min) {
                     min = array[i];
                 }
@@ -46,53 +46,82 @@ var log = {
         }
     },
     indexOf: function (array, value) {
-        return "Index " + value + ": " + array[value];
+        if (array.length >= 1) {
+            return "Index " + value + ": " + array[value];
+        } else {
+            return "O array está vazio";
+        }
     },
     subArray: function (array, startindex, endindex) {
-        newArray=[];
-        for(i=startindex;i<=endindex;i++) {
-            newArray.push(array[i]);
+        if (array.length >= 1) {
+            newArray = [];
+            for (i = startindex; i <= endindex; i++) {
+                newArray.push(array[i]);
+            }
+            return newArray;
+        } else {
+            return "O array está vazio";
         }
-        return newArray;
+
     },
     isSameLength: function (a1, a2) {
-        if (a1.length == a2.length) {
-            return true;
+        if (a1.length >= 1) {
+            if (a1.length == a2.length) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            return "O array está vazio";
         }
     },
     reverse: function (array) {
-        newArray = [];
-        for (i = array.length-1; i >= 0; i--) {
-            newArray.push(array[i]);
+        if (array.length >= 1) {
+            newArray = [];
+            for (i = array.length - 1; i >= 0; i--) {
+                newArray.push(array[i]);
+            }
+            return newArray;
+        } else {
+            return "O array está vazio";
         }
-        return newArray;
     },
     swap: function (array, index1, index2) {
-        [array[index1], array[index2]] = [array[index2], array[index1]];
-        return array;
+        if (array.length >= 1) {
+            [array[index1], array[index2]] = [array[index2], array[index1]];
+            return array;
+        } else {
+            return "O array está vazio";
+        }
     },
     contains: function (array, value) {
-        len = array.length;
-        count = 0;
-        for (i = 0; i <= len; i++) {
-            if (array[i] == value) {
-                count = count + 1;
+        if (array.length >= 1) {
+            len = array.length;
+            count = 0;
+            for (i = 0; i <= len; i++) {
+                if (array[i] == value) {
+                    count = count + 1;
+                }
             }
-        }
-        if(count>=1) {
-            return true;
+            if (count >= 1) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            return "O array está vazio";
         }
     },
     concatenate: function (a1, a2) {
-        newArray=a1;
-        for(i=0;i<=a2.length-1;i++) {
-            newArray.push(a2[i]);
+        if (a1.length >= 1) {
+            newArray = a1;
+            for (i = 0; i <= a2.length - 1; i++) {
+                newArray.push(a2[i]);
+            }
+            return newArray;
+        } else {
+            return "O array está vazio";
         }
-        return newArray;
     }
 }
 
